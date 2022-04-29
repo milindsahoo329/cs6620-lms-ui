@@ -17,7 +17,7 @@ function UserDetails() {
                     <TableRow>
                         <TableCell>Name</TableCell>
                         <TableCell align="right">Leaves Remaining</TableCell>
-                        <TableCell align="right">Leaves Total&nbsp;(g)</TableCell>
+                        <TableCell align="right">Leaves Total</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
