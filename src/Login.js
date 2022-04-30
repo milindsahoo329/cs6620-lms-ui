@@ -26,8 +26,8 @@ function Login() {
         "client_secret": "jDyn9QbKs4tDXKeGXea29kryHoBUukqlw26wv7pyUN2fxPqGWxVIr0mzz9F4qLPF",
         "audience": "https://auth0-jwt-authorizer/",
         "grant_type": "password",
-        "username": "shukla.shi@northeastern.edu",
-        "password": "Mars2114737"
+        "username": uname,
+        "password": pass
       });
 
       var config = {
@@ -71,14 +71,14 @@ function Login() {
 
     var { uname, pass } = document.forms[0];
 
-   // var axiosTokenData = await axiosCallForToken(uname, pass);
+    var axiosTokenData = await axiosCallForToken(uname.value, pass.value);
 
-    var axiosTokenData = {
-      status : 200,
-      data : {
-        access_token : "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ikp4ZWFlTlJ4Vm8xZjFTQU1sYkszYyJ9.eyJpc3MiOiJodHRwczovL2Rldi10ZHFlb2duaC51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjI2ODcxOTRmZGJiNGUwMDY4Y2JkOTllIiwiYXVkIjoiaHR0cHM6Ly9hdXRoMC1qd3QtYXV0aG9yaXplci8iLCJpYXQiOjE2NTEyNDgyODgsImV4cCI6MTY1MTMzNDY4OCwiYXpwIjoiQnMxekh2M1BaNWk4RE4weHk3dUlmSjBWUHpoS2ZkR04iLCJndHkiOiJwYXNzd29yZCIsInBlcm1pc3Npb25zIjpbXX0.hoHnexLztorm1tu7jStd6zbrhvzOZVt1n-jkoti6v7vY9lO7GbEuvVriyr1JxfQll5bEh7_HMX6fViKsBCgSR0bmrJB9QRuPHimTs1TgfglDX3pzg6Z7hqKZfyIRT3E3cnhNwXHjqwKgTIeL5gIHUeZewjKPQfAatRCuQbmTslnmb_K24GucnF6i7_hwCpx73piSa_LS8mauRoYBfH6e4IHJRmdZmp42762FidOwKSPVIRq6utyIYNQTgK6uVW7LFKXSWAa-dwct9G4pUSB9m1A0IPgwOBRB3bL6gxbSwsyAx26z435TKVGsgL8hDZfNDxCkA_VoqZhHwln3wiLHPA"
-      }
-    }
+    // var axiosTokenData = {
+    //   status : 200,
+    //   data : {
+    //     access_token : "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ikp4ZWFlTlJ4Vm8xZjFTQU1sYkszYyJ9.eyJpc3MiOiJodHRwczovL2Rldi10ZHFlb2duaC51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjI2ODcxOTRmZGJiNGUwMDY4Y2JkOTllIiwiYXVkIjoiaHR0cHM6Ly9hdXRoMC1qd3QtYXV0aG9yaXplci8iLCJpYXQiOjE2NTEyNDgyODgsImV4cCI6MTY1MTMzNDY4OCwiYXpwIjoiQnMxekh2M1BaNWk4RE4weHk3dUlmSjBWUHpoS2ZkR04iLCJndHkiOiJwYXNzd29yZCIsInBlcm1pc3Npb25zIjpbXX0.hoHnexLztorm1tu7jStd6zbrhvzOZVt1n-jkoti6v7vY9lO7GbEuvVriyr1JxfQll5bEh7_HMX6fViKsBCgSR0bmrJB9QRuPHimTs1TgfglDX3pzg6Z7hqKZfyIRT3E3cnhNwXHjqwKgTIeL5gIHUeZewjKPQfAatRCuQbmTslnmb_K24GucnF6i7_hwCpx73piSa_LS8mauRoYBfH6e4IHJRmdZmp42762FidOwKSPVIRq6utyIYNQTgK6uVW7LFKXSWAa-dwct9G4pUSB9m1A0IPgwOBRB3bL6gxbSwsyAx26z435TKVGsgL8hDZfNDxCkA_VoqZhHwln3wiLHPA"
+    //   }
+    // }
 
     if (axiosTokenData) {
       if (axiosTokenData.status != 200) {
@@ -145,24 +145,24 @@ function Home() {
 
     event.preventDefault();
 
-    // let userData = await axiosCallForUserDetails();
+    let userData = await axiosCallForUserDetails();
 
-    let userData = {
-      data : {
-        Items: [
-          {
-            "approver_emp_no": 0,
-            "leaves_rem": 20,
-            "role": "approver",
-            "emp_email": "shukla.shi@northeastern.edu",
-            "auth_id": "auth0|62687194fdbb4e0068cbd99e",
-            "leaves_total": 20,
-            "emp_name": "Shivam Shukla",
-            "emp_no": 2
-          }
-        ]
-      }
-    }
+    // let userData = {
+    //   data : {
+    //     Items: [
+    //       {
+    //         "approver_emp_no": 0,
+    //         "leaves_rem": 20,
+    //         "role": "nonapprover",
+    //         "emp_email": "shukla.shi@northeastern.edu",
+    //         "auth_id": "auth0|62687194fdbb4e0068cbd99e",
+    //         "leaves_total": 20,
+    //         "emp_name": "Shivam Shukla",
+    //         "emp_no": 2
+    //       }
+    //     ]
+    //   }
+    // }
 
     if (userData) {
       localStorage.setItem('user-name', userData.data.Items[0].emp_name);
@@ -204,7 +204,7 @@ async function axiosCallForUserDetails() {
       method: 'get',
       url: 'https://9gxa5cbffj.execute-api.us-east-1.amazonaws.com/default/user_details',
       headers: {
-        'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ikp4ZWFlTlJ4Vm8xZjFTQU1sYkszYyJ9.eyJpc3MiOiJodHRwczovL2Rldi10ZHFlb2duaC51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjI2ODcxOTRmZGJiNGUwMDY4Y2JkOTllIiwiYXVkIjoiaHR0cHM6Ly9hdXRoMC1qd3QtYXV0aG9yaXplci8iLCJpYXQiOjE2NTEyNDIwNDYsImV4cCI6MTY1MTMyODQ0NiwiYXpwIjoiQnMxekh2M1BaNWk4RE4weHk3dUlmSjBWUHpoS2ZkR04iLCJndHkiOiJwYXNzd29yZCIsInBlcm1pc3Npb25zIjpbXX0.kSo3rzNsoga1n7IZotELu287hkhBAoEbl7m0JN1HOxtHUdyxhIB8sIvPSyrOSqtG6sElokNEB70pe3PFElwBfYKc2etXm1YGiluMzsGwG4QZmei0pPPTgMiFJ5tNKVeikD4aH0o9FTxtQ790w8jf0hIN6khbDE1YfKFEYFTAvCVutAUk4RYFUqdbZG_YP9VCyQxbw9AoPeITlwPfJmODHkCEULAFfvx6biWCw0ZS6k-PrkgV8rUX3UjJXRUITa6aMdcUqoB02doFgixLV6FJQTC262VE2JccfK4gN7cIiBNO5KwaFK-G7TLNl_iPnj9YgTlOEUCeY9nJSRf3CkHNkA'
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
       }
     };
 
