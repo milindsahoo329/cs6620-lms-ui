@@ -28,7 +28,7 @@ function UserDetails() {
                             <TableCell component="th" scope="row">
                                 {localStorage.getItem('user-name')}
                             </TableCell>
-                            <TableCell align="right">{localStorage.getItem('user-leaves-rem')}</TableCell>
+                            <TableCell align="right"><b>{localStorage.getItem('user-leaves-rem')}</b></TableCell>
                             <TableCell align="right">{localStorage.getItem('user-leaves-total')}</TableCell>
                         </TableRow>
                 </TableBody>

@@ -10,6 +10,8 @@ import "../styles.css";
 
 function ApplyLeave() {
 
+  const navigate = useNavigate();
+
   // React States
 
   const [errorMessages, setErrorMessages] = useState({});
@@ -30,8 +32,13 @@ function ApplyLeave() {
 
     axiosCallForUserDetails(reason.value, date.value);
 
+    if (localStorage.getItem('user-role') == "approver") {
+      navigate("/dashboardAdmin", { replace: true });
+    } else {
+      navigate("/dashboard", { replace: true });
+    }
+  }
 
-  };
 
   // Generate JSX code for error message
   const renderErrorMessage = (name) =>
@@ -78,6 +85,9 @@ function ApplyLeave() {
 async function axiosCallForUserDetails(reason, date) {
   return new Promise(function (resolve, reject) {
 
+    let x = parseInt(localStorage.getItem('user-leaves-rem'));
+    localStorage.setItem('user-leaves-rem', x - 1);
+
     var data = JSON.stringify({
       "reason": reason
     });
@@ -94,11 +104,16 @@ async function axiosCallForUserDetails(reason, date) {
 
     axios(config)
       .then(function (response) {
+
         resolve(true);
       })
       .catch(function (error) {
         resolve(false);
       });
+
+    // let x = parseInt(localStorage.getItem('user-leaves-rem'));
+    // localStorage.setItem('user-leaves-rem', x - 1);
+    // resolve(true);
 
 
 

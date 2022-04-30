@@ -153,7 +153,7 @@ function Home() {
     //       {
     //         "approver_emp_no": 0,
     //         "leaves_rem": 20,
-    //         "role": "nonapprover",
+    //         "role": "approver",
     //         "emp_email": "shukla.shi@northeastern.edu",
     //         "auth_id": "auth0|62687194fdbb4e0068cbd99e",
     //         "leaves_total": 20,
@@ -168,6 +168,7 @@ function Home() {
       localStorage.setItem('user-name', userData.data.Items[0].emp_name);
       localStorage.setItem('user-leaves-rem', userData.data.Items[0].leaves_total);
       localStorage.setItem('user-leaves-total', userData.data.Items[0].leaves_rem);
+      localStorage.setItem('user-role', userData.data.Items[0].role);
     } else {
       setisHavingRole(false);
     }

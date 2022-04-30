@@ -10,7 +10,7 @@ import React, { useState } from "react";
 import axios from 'axios';
 
 
-function LeaveTableHistory({ rows }) {
+function LeaveTableApprovals({ rows }) {
 
     return (
 
@@ -118,4 +118,4 @@ function CustomButton({ case_no, value, status }) {
     );
 }
 
-export default LeaveTableHistory;
+export default LeaveTableApprovals;
