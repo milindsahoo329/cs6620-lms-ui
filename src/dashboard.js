@@ -18,6 +18,8 @@ import Typography from '@mui/material/Typography';
 
 import { Link, useNavigate } from 'react-router-dom';
 
+import image1 from './images/logo512.png';
+
 
 function Dashboard() {
 
@@ -32,7 +34,7 @@ function Dashboard() {
           maxWidth: { xs: 350, md: 250 },
         }}
         alt="The house from the offer."
-        src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2"
+        src={image1}
       />
 
       <Box m={2} pt={3}>

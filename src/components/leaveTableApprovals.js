@@ -36,12 +36,12 @@ function LeaveTableApprovals({ rows }) {
                             <TableCell component="th" scope="row">
                                 {row.case_no}
                             </TableCell>
-                            <TableCell align="right">John Doe</TableCell>
+                            <TableCell align="right">{row.requester}</TableCell>
                             <TableCell align="right">{row.emp_no}</TableCell>
                             {/* <TableCell align="right">{row.status}</TableCell> */}
                             <TableCell align="right">{row.reason}</TableCell>
                             <TableCell>
-                                <CustomButton value={"test"} case_no={"xyz"} status={row.status} />
+                                <CustomButton value={"test"} case_no={row.case_no} status={row.status} />
                             </TableCell>
                         </TableRow>
                     ))}
