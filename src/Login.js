@@ -166,8 +166,8 @@ function Home() {
 
     if (userData) {
       localStorage.setItem('user-name', userData.data.Items[0].emp_name);
-      localStorage.setItem('user-leaves-rem', userData.data.Items[0].leaves_total);
-      localStorage.setItem('user-leaves-total', userData.data.Items[0].leaves_rem);
+      localStorage.setItem('user-leaves-rem', userData.data.Items[0].leaves_rem);
+      localStorage.setItem('user-leaves-total', userData.data.Items[0].leaves_total);
       localStorage.setItem('user-role', userData.data.Items[0].role);
     } else {
       setisHavingRole(false);
